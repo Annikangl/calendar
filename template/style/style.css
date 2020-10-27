@@ -1,0 +1,220 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+
+
+.container {
+    width: 100%;
+    max-width: 944px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: rgba(139, 176, 250, 0.6);
+    padding: 20px 0;
+}
+
+.header__inner {
+    display: flex;
+}
+
+.header__title {
+    margin-right: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px;
+    background-color: #000;
+}
+
+.btn {
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    padding: .8em 1em calc(.8em + 3px);
+    border-radius: 3px;
+    background: rgb(57, 105, 235);
+    box-shadow: 0 -3px rgb(24, 27, 75) inset;
+    transition: 0.2s;
+}
+
+.task__settings {
+    padding-top: 50px;
+}
+
+.task__settings__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.asc__sort {
+    display: flex;
+    align-items: center;
+}
+
+.sort__icon {
+    display: inline;
+    width: 25px;
+    height: 20px;
+}
+
+.tasks {
+    padding-top: 50px;
+}
+
+.task__item {
+    margin-bottom: 15px;
+    border: 2px solid #828282;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+}
+
+.task__item:hover {
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.task__header {
+    display: flex;
+    align-items: baseline;
+    background-color: rgb(239, 239, 239);
+}
+
+.task__title a {
+    padding: 0 15px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #000;
+}
+
+.task__title a:hover {
+    text-decoration: underline;
+}
+
+.start__date,
+.end__date {
+    font-size: 14px;
+}
+
+.start__date {
+    padding-right: 5px;
+}
+
+.end__date {
+    padding-left: 5px;
+}
+
+.task__text {
+    padding: 0 15px;
+}
+
+.task__btn {
+    padding: 30px 15px;
+}
+
+.task__update,
+.task__delete {
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+    padding: .8em 1em calc(.8em + 3px);
+    border-radius: 3px;
+    box-shadow: 0 -3px rgb(24, 27, 75) inset;
+    transition: 0.2s;
+
+}
+
+.task__update {
+    background: rgb(57, 105, 235);
+}
+
+.task__delete {
+    background: rgb(187, 52, 19);
+}
+
+.form__group input[type="text"],
+.form__group label {
+    display: block;
+    width: 50%;
+}
+
+.form__group input {
+    margin-bottom: 10px;
+    padding: 0;
+    line-height: 30px;
+    background: rgb(239, 239, 239);
+    border-width: 0;
+}
+
+.form__group label {
+    margin-bottom: 5px;
+    color: #000;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+
+.submit__block input {
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.success__msg {
+    border: 1px solid;
+    margin: 10px 0px;
+    padding: 15px 10px 15px 50px;
+    background-position: 10px center;
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    background-image: url(../images/Success.png);
+    background-repeat: no-repeat;
+    width: 250px;
+}
+
+li {
+    list-style-type: none;
+}
+
+a:link,
+a:hover,
+a:visited {
+    text-decoration: none;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination-item {
+    margin-right: 18px;
+    border-radius: 10px;
+    border: solid 1px #ececec;
+}
+
+.pagination a {
+    padding: 11px 16px 11px 16px;
+    transition: .2s all;
+    display: flex;
+}
+
+.pagination-item:hover {
+    background-color: #ececec;
+}
+
+.pg-active {
+    background-color: #ececec;
+}
