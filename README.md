@@ -64,4 +64,14 @@
 ![c-6](https://user-images.githubusercontent.com/32800337/97359470-da8cc700-18ad-11eb-9e9a-5f01d02d38fe.jpg)
 
 
+<h2>Работа с API </h2>
+
+<p>Помимо создания нового пользователя API приложение еще может выводить весь список зарегистрированных пользователей. Для этого нужно сформировать GET запрос следующего вида:
+ <b>localhost/calendar/api/users</b></p>
+ В слеучае неудачного запроса вернется HTTP CODE 400
+
+Получаем результат:
+![api-2](https://user-images.githubusercontent.com/32800337/97500457-aafabf00-1980-11eb-8c0d-6b9acf22a458.JPG)
+
+
 
