@@ -1,5 +1,5 @@
 <?php
-include_once(ROOT . '/Models/Task.php');
+
 
 
 class TaskController
@@ -19,6 +19,7 @@ class TaskController
             $fields['text'] = $_POST['task__text'];
             $fields['created_date'] = $_POST['created__date'];
             $fields['end_date'] = $_POST['end__date'];
+            $fields['user_id'] = $_SESSION['user_id'];
 
             // посдатвляется текущая дета, если не задать дату начала задачи
             if ($fields['created_date'] == false) {

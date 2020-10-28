@@ -5,6 +5,12 @@ return array(
     'calendar/task/create' => 'task/create',
     'calendar/task/delete/([0-9]+)' => 'task/delete/$1',
 
+    'calendar/api/users' => 'api/read',
+    'calendar/api/user' => 'api/create',
+
+    'calendar/user/login' => 'user/login',
+    'calendar/user/logout' => 'user/logout',
+
     'calendar/page-([0-9]+)' => 'calendar/index/$1',
     'calendar' => 'calendar/index',
 

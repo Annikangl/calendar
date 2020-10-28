@@ -7,8 +7,8 @@ error_reporting(E_ALL);
 
 
 const ROOT = __DIR__;
-require_once(ROOT . "/includes/Router.php");
-require_once(ROOT . "/includes/Db.php");
+require_once(ROOT . "/includes/Autoload.php");
+session_start();
 
 $router = new Router();
 $router->run();

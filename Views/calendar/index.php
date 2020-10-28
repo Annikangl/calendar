@@ -7,6 +7,9 @@
     <title>Calendar</title>
     <link rel="stylesheet" href="template\style\style.css">
 </head>
+<?php if (!isset($_SESSION['user_id'])): ?>
+    <?php header("Location: user/login"); ?>
+<?php endif;?>
 
 <body>
     <header class="header">
@@ -15,11 +18,16 @@
                 <div class="header__title">TODO List</div>
                 <nav class="header__nav">
                     <a href="/calendar" class="nav-link btn">Задачи</a>
-                    <a href="#" class="nav-link btn">Выйти</a>
+                    <a href="user/logout/" class="nav-link btn">Выйти</a>
                 </nav>
             </div> <!-- /.header__inner -->
         </div> <!-- /.container -->
     </header> <!-- /.header -->
+    <div class="user__info">
+        <div class="container">
+            <h4>Ваш API ключ: <?= $_SESSION['token']; ?></h3>
+        </div>
+    </div>
 
     <section class="task__settings">
         <div class="container">
@@ -62,7 +70,6 @@
                 </div>
                
                 <div class="task__btn">
-                    <a href="#" class="task__update">Редактировать</a>
                     <a href="task/delete/<?= $task['id'];?> " class="task__delete">Удалить</a>
                 </div>
         </div>
@@ -82,5 +89,6 @@
     
 
 </body>
+    
 
 </html>

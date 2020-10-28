@@ -38,8 +38,7 @@
                 </div>
                
                 <div class="task__btn">
-                    <a href="#" class="task__update">Редактировать</a>
-                    <a href="#" class="task__delete">Удалить</a>
+                    <a href="delete/<?= $taskItem['id'];?>" class="task__delete">Удалить</a>
                 </div>
         </div>
         </div>

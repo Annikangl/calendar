@@ -184,6 +184,16 @@ body {
     width: 250px;
 }
 
+.error__msg {
+    border: 1px solid;
+    margin: 10px 0px;
+    padding: 15px 0px 15px 50px;
+    background-position: 10px center;
+    color: #D63301;
+    background-color: #FFCCBA;
+    width: 250px;
+}
+
 li {
     list-style-type: none;
 }
