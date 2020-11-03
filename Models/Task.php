@@ -49,21 +49,21 @@ class Task
         return $row['count'];
     }
 
-    public static function createTask(array $fields) {
+    public static function createTask(array $data) {
         $db = Db::getConnection();
         $sql = "INSERT INTO `tasks` (title,text,created_date,end_date,user_id) 
                 VALUES (:title, :text, :created_date, :end_date,:user_id)";
         $result = $db->prepare($sql);
         $result->execute(
             [
-            'title' => $fields['title'],
-            'text' => $fields['text'],
-            'created_date' => $fields['created_date'],
-            'end_date' => $fields['end_date'],
-            'user_id' => $fields['user_id'],
+            'title' => $data['title'],
+            'text' => $data['text'],
+            'created_date' => $data['created_date'],
+            'end_date' => $data['end_date'],
+            'user_id' => $data['user_id'],
             ]
         );
-        return $result;
+        return $db->lastInsertId();
     }
 
     public static function deleteTaskById($taskId) {

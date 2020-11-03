@@ -1,7 +1,5 @@
 <?php
 
-
-
 class TaskController
 {
     public function actionView($taskId) {
@@ -15,18 +13,18 @@ class TaskController
     public function actionCreate() {
         $createTask = '';
         if (isset($_POST['submit'])) {
-            $fields['title'] = $_POST['task__title'];
-            $fields['text'] = $_POST['task__text'];
-            $fields['created_date'] = $_POST['created__date'];
-            $fields['end_date'] = $_POST['end__date'];
-            $fields['user_id'] = $_SESSION['user_id'];
+            $data['title'] = $_POST['task__title'];
+            $data['text'] = $_POST['task__text'];
+            $data['created_date'] = $_POST['created__date'];
+            $data['end_date'] = $_POST['end__date'];
+            $data['user_id'] = $_SESSION['user_id'];
 
             // посдатвляется текущая дета, если не задать дату начала задачи
-            if ($fields['created_date'] == false) {
-                $fields['created_date'] = date('Y-m-d H:i:s');
+            if ($data['created_date'] == false) {
+                $data['created_date'] = date('Y-m-d H:i:s');
             }
 
-            $createTask = Task::createTask($fields);
+            $createTask = Task::createTask($data);
         }
 
         require_once(ROOT .'/views/task/create.php');

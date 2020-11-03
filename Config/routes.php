@@ -8,6 +8,9 @@ return array(
     'calendar/api/users' => 'api/readUsers',
     'calendar/api/user' => 'api/createUser',
 
+    'calendar/api/tasks' => 'api/readTasks/$1',
+    'calendar/api/task/create' => 'api/createTask/$1',
+
     'calendar/user/login' => 'user/login',
     'calendar/user/logout' => 'user/logout',
 

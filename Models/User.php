@@ -33,6 +33,15 @@ class User
         return $result->fetch(PDO::FETCH_ASSOC);
     }
 
+    public static function getUserByToken($token) {
+        $db = Db::getConnection();
+        $sql = "SELECT id FROM users WHERE token=:token";
+        $result = $db->prepare($sql);
+        $result->execute(['token' => $token]);
+        $user = $result->fetch(PDO::FETCH_ASSOC);
+        return $user['id'];
+    }
+
     public static function checkUserData($username,$token) {
         $db = Db::getConnection();
         $sql = "SELECT * FROM users WHERE username=:username AND token=:token";
