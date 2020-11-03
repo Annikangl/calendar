@@ -4,45 +4,60 @@ class ApiController
 {
 
     // Метод для получения всех пользователей 
-    public function actionRead() {
+    public function actionReadUsers() {
         self::setHeaders();
 
-        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            http_response_code(200);
-            $usersList = User::getUserList();
-            if ($usersList) {
-                echo json_encode($usersList);
-            }
-        } else {
+        if ($_SERVER['REQUEST_METHOD'] != 'GET') {
             http_response_code(400);
+            echo json_encode([
+                'success' => false,
+                'error' => 'К методу разрешен доступ лишь GET запросом'
+            ]);
         }
-        
-        return true;
+
+        $createRespone = User::getUserList();
+        if (!$createRespone) {
+            http_response_code(400);
+            return json_encode([
+                'success' => false,
+                'error' => 'Проверьте корректность запроса'
+            ]);
+        }
+        http_response_code(200);
+        return json_encode($createRespone);
     }
 
 
-
-    // Метод создания нового пользователя
-    public function actionCreate() {
+        // Метод создания нового пользователя
+    public function actionCreateUser() {
         self::setHeaders();
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $data['username'] = $_POST['username'];
-            $data['token'] = self::generateToken($data);
-            $lastId = User::createUser($data);
-            $token = User::getUserById($lastId);
-            if ($lastId) {
-                http_response_code(201);
-                $response = [
-                    'status' => true,
-                    'user_id' => $lastId,
-                    'token' => $token['token']
-                ];
-                echo json_encode($response);
-            }
+        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+            http_response_code(400);
+            return json_encode([
+                'success' => false,
+                'error' => 'К методу разрешен доступ, лишь POST запросом',
+            ]);
         }
-        http_response_code(400);
-        return true;
+
+        $data['username'] = $_POST['username'];
+        $data['token'] = self::generateToken($data);
+        
+        $createResponse = User::createUser($data);
+        if (!is_numeric($createResponse) ) {
+            http_response_code(400);
+            return json_encode([
+                'success' => false,
+                'error' => 'Поле "Имя пользователя" - не заполнено',
+            ]);
+        }
+
+        http_response_code(201);
+        return json_encode([
+            'status'    => true,
+            'user_id'   => $createResponse,
+            'token'     => $data['token'],
+        ]);
     }
 
 

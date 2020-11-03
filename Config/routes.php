@@ -5,8 +5,8 @@ return array(
     'calendar/task/create' => 'task/create',
     'calendar/task/delete/([0-9]+)' => 'task/delete/$1',
 
-    'calendar/api/users' => 'api/read',
-    'calendar/api/user' => 'api/create',
+    'calendar/api/users' => 'api/readUsers',
+    'calendar/api/user' => 'api/createUser',
 
     'calendar/user/login' => 'user/login',
     'calendar/user/logout' => 'user/logout',
