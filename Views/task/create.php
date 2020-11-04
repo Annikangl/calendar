@@ -1,7 +1,3 @@
-<?php
-
-
-?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -28,11 +24,10 @@
 
     <section class="tasks">
         <div class="container">
-            <?php if ($createTask): ?>
         <div class="success__msg">Задача успешно создана</div>
-            <?php endif; ?>
+
             <div class="from__add">
-                <form action="" method="POST">
+                <form method="POST">
                     <h3>Добавление новой задачи</h3>
                     <div class="form__group">
                         <label for="task-title">Название задачи</label>
@@ -46,16 +41,14 @@
                         <input type="date" name="end__date" id="end-date">
                     </div>
                     <div class="submit__block">
-                        <input type="submit" value="Отправить" name="submit">
+                        <button name="submit" id="submit" onclick="addTask()">Отправить</button>
                     </div>
 
                 </form>
             </div>
-
-
     </section>
 
-
+<script src="../template/js/app.js"></script>
 </body>
 
 </html>

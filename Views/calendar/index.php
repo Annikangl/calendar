@@ -25,7 +25,7 @@
     </header> <!-- /.header -->
     <div class="user__info">
         <div class="container">
-            <h4>Ваш API ключ: <?= $_SESSION['token']; ?></h3>
+            <h4>Ваш API ключ: <span class="token"><?= $_SESSION['token']; ?></span></h4>
         </div>
     </div>
 
@@ -57,24 +57,13 @@
     </section> <!-- /.task__settings -->
 
     <section class="tasks">
-        <div class="container">
-        <?php foreach ($taskList as $task) : ?>
-            <div class="task__item">
-                <div class="task__header">
-                    <h2 class="task__title"><a href="task/<?= $task['id']; ?> "><?= $task['title'] ?></a></h2>
-                    <div class="start__date"><?= $task['created_date'];?></div> -
-                    <div class="end__date"><?= $task['end_date']; ?></div>
-                </div>
-                <div class="task__text">
-                    <p><?= $task['text']; ?></p>
-                </div>
-               
-                <div class="task__btn">
-                    <a href="task/delete/<?= $task['id'];?> " class="task__delete">Удалить</a>
-                </div>
-        </div>
-        <?php endforeach; ?>
+            <div class="container">
 
+            <div class="task__wrapeer">
+
+            </div>
+  
+            </div>
         
     </section>
 
@@ -89,6 +78,7 @@
     
 
 </body>
-    
+<script src="template/js/app.js"></script>
+<script>getTasks();</script>
 
 </html>

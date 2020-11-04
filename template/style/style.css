@@ -166,13 +166,14 @@ body {
 }
 
 
-.submit__block input {
+.submit__block button {
     padding: 10px;
     text-align: center;
     cursor: pointer;
 }
 
 .success__msg {
+    display: none;
     border: 1px solid;
     margin: 10px 0px;
     padding: 15px 10px 15px 50px;

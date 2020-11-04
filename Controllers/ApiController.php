@@ -61,7 +61,7 @@ class ApiController
     }
 
 
-    public function actionReadTasks() {
+    public function actionReadTasks($page) {
         self::setHeaders();
 
         if ($_SERVER['REQUEST_METHOD'] != 'GET') {
@@ -83,13 +83,13 @@ class ApiController
             ]);
         }
 
-        $createRespone = Task::getTaskList(1,$userId);
+        $createRespone = Task::getTaskList($page,$userId);
 
         if (!$createRespone) {
             http_response_code(400);
             return json_encode([
                 'success' => false,
-                'error' => 'Проверьте корректность запрос check request'
+                'error' => 'Проверьте корректность запроса'
             ]);
         }
 
@@ -126,7 +126,7 @@ class ApiController
         $data['user_id'] = $userId;
         
         $createResponse = Task::createTask($data);
-        if (!is_numeric($createResponse) ) {
+        if (!is_numeric($createResponse)) {
             http_response_code(400);
             echo json_encode([
                 'success' => false,
@@ -141,6 +141,47 @@ class ApiController
         ]);
         return true;
     }
+
+    public function actionDeleteTask($taskId) {
+        self::setHeaders();
+        $token = self::getToken();
+
+        if ($_SERVER['REQUEST_METHOD'] != 'DELETE') {
+            http_response_code(400);
+            echo json_encode([
+                'success' => false,
+                'error' => 'К методу разрешен доступ, лишь DELETE запросом',
+            ]);
+        }
+
+        $userId = User::getUserByToken($token);
+
+        if (!$userId) {
+            http_response_code(401);
+            echo json_encode([
+                'success' => false,
+                'error' => 'Неверный токен'
+            ]);
+        }
+
+        $createRespone = Task::deleteTaskById($taskId);
+
+        if (!$createRespone) {
+            http_response_code(400);
+            return json_encode([
+                'success' => false,
+                'error' => 'Проверьте корректность запроса'
+            ]);
+        }
+
+        http_response_code(200);
+        echo json_encode([
+            'status' => true,
+        ]);
+        return true;
+    }
+
+
     
 
     private static function setHeaders() {
