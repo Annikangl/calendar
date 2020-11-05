@@ -25,7 +25,7 @@
     </header> <!-- /.header -->
     <div class="user__info">
         <div class="container">
-            <h4>Ваш API ключ: <span class="token"><?= $_SESSION['token']; ?></span></h4>
+            <h4>Ваш API ключ: <span class="token"></span></h4>
         </div>
     </div>
 

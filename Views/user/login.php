@@ -35,11 +35,13 @@
                         <input type="text" name="token" id="token">
                     </div>
                     <div class="submit__block">
-                        <input type="submit" value="Войти" name="submit">
+                        <input type="submit" value="Войти" name="submit" onclick="setToken()">
                     </div>
                 </form>
             </div>
         </section>
+
+        <script src="../template/js/app.js"></script>
     </body>
 
 </html>

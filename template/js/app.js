@@ -1,5 +1,15 @@
+function setToken() {
+    let token = document.querySelector('#token').value;
+    if (token.length != 0) {
+        localStorage.setItem('token',token.toString());
+    }
+}
+
+const token = localStorage.getItem('token');
+
 async function getTasks() {
-    let res = await fetch('http://localhost/calendar/api/tasks/1?token=750909f329dad214f5f66acaee61f84a');
+    document.querySelector('.token').innerHTML = token;
+    let res = await fetch(`http://localhost/calendar/api/tasks/1?token=${token}`);
     let tasks = await res.json();
     document.querySelector('.task__wrapeer').innerHTML = '';
     tasks.forEach(task => {
@@ -41,7 +51,7 @@ async function addTask() {
     formData.append('created_date', created_date);
     formData.append('end_date', end_date);
 
-    const res = await fetch('http://localhost/calendar/api/task/create?token=750909f329dad214f5f66acaee61f84a', {
+    const res = await fetch(`http://localhost/calendar/api/task/create?token=${token}`, {
         method: 'POST',
         body: formData
     });
@@ -53,7 +63,7 @@ async function addTask() {
 }
 
 async function deleteTask(taskId) {
-    const res = await fetch(`http://localhost/calendar/api/task/delete/${taskId}?token=750909f329dad214f5f66acaee61f84a`, {
+    const res = await fetch(`http://localhost/calendar/api/task/delete/${taskId}?token=${token}`, {
         method: 'DELETE'
     });
 
